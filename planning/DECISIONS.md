@@ -13,3 +13,5 @@ A running record of what we decided, why, and what we considered instead.
 | 6 | 2026-11-04 | SOC 2 primary, NIST CSF 2.0 as structure, PCI DSS later | Limit scope; depth beats breadth for a junior portfolio | Doing SOC 2 + PCI + ISO all at once |
 | 7 | 2026-11-04 | Engineering interest shown through automation projects, not a separate track | Keeps one clear story; "GRC analyst who automates" naturally points toward GRC engineering | Dual positioning (analyst AND engineer) |
 | 8 | 2026-11-04 | Light portfolio tasks only until Security+ exam is done | Passing the exam is the higher priority; avoid splitting focus | Building in parallel at full speed |
+| 9 | 2026-11-04 | Build general portfolio first with Astro + GitHub + Vercel; GRC content later | User priority: a live, modern, editable site now. Astro: static output, one dependency, Markdown-friendly for the future blog | Hugo + GitHub Pages; Next.js |
+| 10 | 2026-11-04 | All content in one file (`src/config.ts`); plain CSS with design tokens | Easy to edit without touching layout code; no CSS framework to learn | Tailwind CSS; content in each component |

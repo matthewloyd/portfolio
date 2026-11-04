@@ -1,0 +1,33 @@
+---
+import { site, links } from "../config";
+---
+
+<section id="contact" class="alt">
+  <div class="container">
+    <div class="card contact reveal">
+      <p class="section-label">05 · Contact</p>
+      <h2>Let's connect</h2>
+      <p class="lead">
+        I'm looking for opportunities in GRC and security compliance. If you're hiring or want to talk shop, reach out.
+      </p>
+      <div class="ctas">
+        <a class="btn btn-primary" href={`mailto:${site.email}`}>Email me</a>
+        <a class="btn btn-ghost" href={links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href={links.github} target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    text-align: center;
+    padding: 56px 24px;
+    background:
+      radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
+      var(--surface);
+  }
+  h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  .lead { color: var(--text-muted); max-width: 520px; margin: 0 auto 28px; }
+  .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+</style>

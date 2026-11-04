@@ -1,0 +1,29 @@
+---
+import { about, site } from "../config";
+---
+
+<section id="about" class="alt">
+  <div class="container about reveal">
+    <div>
+      <p class="section-label">01 · About</p>
+      <h2 class="section-title">A bit about me</h2>
+    </div>
+    <div class="body">
+      {about.map((p) => <p>{p}</p>)}
+      <p class="meta">📍 {site.location}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+  }
+  .body p { margin: 0 0 1em; color: var(--text-muted); font-size: 1.08rem; }
+  .body p.meta { font-size: 0.95rem; }
+  @media (max-width: 760px) {
+    .about { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>

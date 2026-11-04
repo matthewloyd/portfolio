@@ -1,0 +1,115 @@
+---
+import { site, links } from "../config";
+const initials = site.name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+---
+
+<section class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="text">
+      {site.openToWork && <span class="badge"><span class="dot"></span>Open to opportunities</span>}
+      <h1>
+        Hi, I'm {site.name}.<br />
+        <span class="gradient">{site.role}</span>
+      </h1>
+      <p class="tagline">{site.tagline}</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#projects">View my work</a>
+        {site.resumeUrl && <a class="btn btn-ghost" href={site.resumeUrl} target="_blank" rel="noopener">Résumé</a>}
+        <a class="btn btn-ghost" href={links.github} target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href={links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="avatar" aria-hidden={site.photo ? undefined : "true"}>
+      {site.photo ? <img src={site.photo} alt={`Photo of ${site.name}`} /> : <span>{initials}</span>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 100px;
+  }
+  .glow {
+    position: absolute;
+    inset: -40% -10% auto auto;
+    width: 640px;
+    height: 640px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 28%, transparent), transparent 65%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 4px rgb(34 197 94 / 0.2);
+  }
+  h1 {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .gradient {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tagline {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 0 32px;
+  }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .avatar {
+    justify-self: center;
+    width: 260px;
+    aspect-ratio: 1;
+    border-radius: 32px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transform: rotate(3deg);
+  }
+  .avatar span {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.04em;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 72px 0 64px; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .avatar { order: -1; justify-self: start; width: 112px; border-radius: 24px; }
+    .avatar span { font-size: 2.4rem; }
+  }
+</style>

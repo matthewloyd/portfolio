@@ -1,0 +1,52 @@
+---
+import { projects } from "../config";
+const statusLabel = { complete: "Complete", "in-progress": "In progress", planned: "Planned" };
+---
+
+<section id="projects" class="alt">
+  <div class="container">
+    <p class="section-label">03 · Projects</p>
+    <h2 class="section-title">Things I've built</h2>
+    <div class="grid projects">
+      {projects.map((p) => (
+        <article class="card project reveal">
+          <div class="top">
+            <span class={`status ${p.status}`}>{statusLabel[p.status]}</span>
+            <div class="links">
+              {p.repo && <a href={p.repo} target="_blank" rel="noopener" aria-label={`${p.title} source code`}>Code ↗</a>}
+              {p.link && <a href={p.link} target="_blank" rel="noopener" aria-label={`${p.title} live`}>Live ↗</a>}
+            </div>
+          </div>
+          <h3>{p.title}</h3>
+          <p>{p.description}</p>
+          <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .project {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .project:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .links { display: flex; gap: 12px; font-size: 0.88rem; font-weight: 600; }
+  h3 { font-size: 1.2rem; }
+  p { color: var(--text-muted); font-size: 0.97rem; flex: 1; margin: 0 0 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .status.complete { color: #16a34a; border-color: rgb(22 163 74 / 0.35); }
+  .status.in-progress { color: #d97706; border-color: rgb(217 119 6 / 0.35); }
+</style>

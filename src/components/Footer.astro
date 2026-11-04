@@ -1,0 +1,20 @@
+---
+import { site, links } from "../config";
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container inner">
+    <p>© {year} {site.name}</p>
+    <p>
+      <a href={links.github} target="_blank" rel="noopener">GitHub</a>{" · "}<a href={links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--border); padding: 28px 0; font-size: 0.9rem; color: var(--text-muted); }
+  .inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  p { margin: 0; }
+  a { color: var(--text-muted); }
+</style>

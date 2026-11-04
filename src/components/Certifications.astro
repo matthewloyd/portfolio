@@ -1,0 +1,45 @@
+---
+import { certifications } from "../config";
+const statusLabel = { earned: "Earned", "in-progress": "In progress", planned: "Planned" };
+---
+
+<section id="certifications">
+  <div class="container">
+    <p class="section-label">04 · Certifications</p>
+    <h2 class="section-title">Credentials</h2>
+    <div class="grid certs">
+      {certifications.map((c) => (
+        <div class="card cert reveal">
+          <div class="icon" aria-hidden="true">🛡️</div>
+          <div>
+            <h3>{c.issuer} {c.name}</h3>
+            <p>
+              <span class={`status ${c.status}`}>{statusLabel[c.status]}</span>
+              {c.date && <span> · {c.date}</span>}
+              {c.credentialUrl && <span> · <a href={c.credentialUrl} target="_blank" rel="noopener">Verify ↗</a></span>}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .certs { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .cert { display: flex; gap: 16px; align-items: center; }
+  .icon {
+    font-size: 1.6rem;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  h3 { font-size: 1.05rem; margin: 0 0 2px; }
+  p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+  .status.earned { color: #16a34a; font-weight: 600; }
+  .status.in-progress { color: #d97706; font-weight: 600; }
+</style>
