@@ -4,13 +4,13 @@
 // =====================================================================
 
 export const site = {
-  name: "Your Name",
+  name: "Matthew Loyd",
   // Short headline shown under your name in the hero section
   role: "Aspiring GRC Analyst",
   tagline:
     "I turn security frameworks into practical, working programs — risk assessments, control mappings, policies, and the automation that keeps them running.",
-  location: "City, State",
-  email: "you@example.com",
+  location: "Fresno, CA",
+  email: "matthewdloyd@gmail.com",
   // Set to true when you're actively looking — shows a badge in the hero
   openToWork: true,
   // Path to a PDF in /public, e.g. "/resume.pdf". Leave "" to hide the button.
@@ -21,7 +21,7 @@ export const site = {
 
 export const links = {
   github: "https://github.com/matthewloyd",
-  linkedin: "https://www.linkedin.com/in/your-profile",
+  linkedin: "https://www.linkedin.com/in/matthew-loyd-/",
 };
 
 export const about = [
