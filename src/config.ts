@@ -20,7 +20,7 @@ export const site = {
 };
 
 export const links = {
-  github: "https://github.com/your-username",
+  github: "https://github.com/matthewloyd",
   linkedin: "https://www.linkedin.com/in/your-profile",
 };
 
@@ -59,7 +59,7 @@ export const projects: {
       "This site. Built with Astro, versioned on GitHub, deployed on Vercel. Stack chosen for low dependency and maintenance risk.",
     tags: ["Astro", "GitHub", "Vercel"],
     status: "complete",
-    repo: "https://github.com/your-username/portfolio",
+    repo: "https://github.com/matthewloyd/portfolio",
   },
   {
     title: "SOC 2 Readiness Assessment",
